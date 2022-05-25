@@ -12,16 +12,22 @@ a {
   color: #0366d6;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.btn-primary
+{
+    color: #fff;
+    background-color: #AD6334;
+    border-color: #B06332;
 }
+    .btn-primary:hover {
+        background-color: #795F55;
+        border-color: #795F55;
+    }
 .navbar
 {
     margin-bottom: 0;
 }
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link
+{
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -30,7 +36,8 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: 'Josefin Sans'!important;
 }
 @media (min-width: 768px) {
   html {
@@ -67,39 +74,45 @@ a
 {
     color: #94634E;
 }
-a:hover
+a:hover 
 {
-    color: #E54803;
+    color: #795F55;
 }
 body 
 {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     margin: 0;
-
     /* The image used */
     background-image: url(/pictures/bg-1.jpg);
-
     /* Full height */
     height: 100%;
     width: auto;
-
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.about {
+    padding: 60px;
+    background: linear-gradient(274.28deg, rgba(248, 248, 248, 0.3) -1.15%, rgba(240, 240, 240, 0.5) 100%);
 }
 .blog-posts 
 {
     padding: 40px;
     background: linear-gradient(274.28deg, rgba(248, 248, 248, 0.3) -1.15%, rgba(240, 240, 240, 0.5) 100%);
 }
-.events-container {
+
+.events-container
+{
     padding: 40px;
     background: linear-gradient(274.28deg, rgba(248, 248, 248, 0.3) -1.15%, rgba(240, 240, 240, 0.5) 100%);
 }
 
-.footer {
+.footer
+{
     position: absolute;
     bottom: 0;
     width: 100%;

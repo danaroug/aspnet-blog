@@ -54,7 +54,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] About about)
+        public async Task<IActionResult> Create([Bind("AboutTitle, AboutText")] About about)
         {
             if (ModelState.IsValid)
             {

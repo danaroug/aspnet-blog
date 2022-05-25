@@ -4,26 +4,24 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create a Blog post</h1>
+<div class="create-wrapper bg-light rounded-lg p-2 mt-4">
+    <h1>Create a Blog post</h1>
 
-<h4>Blog</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div class="container-fluid">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="BlogName" class="control-label"></label>
+                <label asp-for="BlogName" class="control-label">Post Title </label>
                 <input asp-for="BlogName" class="form-control" />
                 <span asp-validation-for="BlogName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BlogPost" class="control-label"></label>
-                <input asp-for="BlogPost" class="form-control" />
+                <label asp-for="BlogPost" class="control-label">Blog Post</label>
+                <textarea asp-for="BlogPost" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="BlogPost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BlogAuthor" class="control-label"></label>
+                <label asp-for="BlogAuthor" class="control-label">Blog Author</label>
                 <input asp-for="BlogAuthor" class="form-control" />
                 <span asp-validation-for="BlogAuthor" class="text-danger"></span>
             </div>
@@ -35,7 +33,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Posts</a>
 </div>
 
 @section Scripts {
