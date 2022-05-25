@@ -4,19 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-
-
 <article class="blog-posts">
-    <h1>Blog</h1>
-
+    <h1>Welcome to our Blog</h1>
     <p>
-        <a asp-action="Create">Create New Blog Post</a>
+        <a asp-action="Create">Create New Post</a>
     </p>
     <hr />
     <div class="container-fluid">
         @foreach (var item in Model)
         {
-
             <h2>
                 @Html.DisplayFor(modelItem => item.BlogName)
             </h2>
@@ -26,7 +22,10 @@
             <p>
                 Author:
                 @Html.DisplayFor(modelItem => item.BlogAuthor)
-                
+            </p>
+            <p>
+                Posted:
+                @Html.DisplayFor(modelItem => item.ArticleDate)
             </p>
             <p>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -34,7 +33,6 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </p>
             <hr />
-            
         }
     </div>
 </article>

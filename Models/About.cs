@@ -9,6 +9,7 @@ namespace WarbandOfTheSpiritborn.Models
     {
         public int Id { get; set; }
 
+        public String AboutTitle { get; set; }
         public String AboutText { get; set; }
 
         public About()

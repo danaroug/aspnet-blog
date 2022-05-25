@@ -25,7 +25,7 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(await _context.Events.ToListAsync());
         }
         // GET: Events/ShowSearchForm
-        public async Task<IActionResult> ShowSearchForm()
+        public IActionResult ShowSearchForm()
         {
             return View();
         }

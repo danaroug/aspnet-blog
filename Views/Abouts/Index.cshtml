@@ -3,28 +3,28 @@
 @{
     ViewData["Title"] = "Index";
 }
+<article class="about">
+    <h1>Discover our story</h1>
+    <p>
+        <a asp-action="Create">Add Content</a>
+    </p>
+    <hr />
+    <div class="container-fluid">
+        @foreach (var item in Model)
+        {
+            <h2>
+                @Html.DisplayFor(modelItem => item.AboutTitle)
+            </h2>
+            <p>
+                @Html.DisplayFor(modelItem => item.AboutText)
+            </p>
 
-<h1>About Us</h1>
-<p>lorem</p>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
+            <p>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                @*@<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </p>
+            <hr />
+        }
+    </div>
+</article>
