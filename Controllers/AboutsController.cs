@@ -86,7 +86,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] About about)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AboutTitle,AboutText")] About about)
         {
             if (id != about.Id)
             {

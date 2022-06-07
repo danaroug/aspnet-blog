@@ -4,11 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<div class="create-wrapper bg-light rounded-lg p-2 mt-4">
+<div class="edit-wrapper bg-light rounded-lg p-2 mt-4">
     <h1>About Content</h1>
 
     <div class="container-fluid">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -22,7 +22,7 @@
                 <span asp-validation-for="AboutText" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
