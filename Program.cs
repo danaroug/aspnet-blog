@@ -22,5 +22,7 @@ namespace WarbandOfTheSpiritborn
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        //public virtual Microsoft.AspNetCore.Identity.IdentityBuilder AddRoles<TRole>() where TRole : class;
     }
 }

@@ -3,29 +3,27 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="edit-wrapper bg-light rounded-lg p-2 mt-4">
+    
+    <h4>Edit Post</h4>
 
-<h1>Edit</h1>
-
-<h4>Blog</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div class="container">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="BlogName" class="control-label"></label>
+                <label asp-for="BlogName" class="control-label">Blog Title</label>
                 <input asp-for="BlogName" class="form-control" />
                 <span asp-validation-for="BlogName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BlogPost" class="control-label"></label>
-                <input asp-for="BlogPost" class="form-control" />
+                <label asp-for="BlogPost" class="control-label">Blog Post</label>
+                <textarea asp-for="BlogPost" class="form-control"  rows="10"></textarea>
                 <span asp-validation-for="BlogPost" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BlogAuthor" class="control-label"></label>
-                <input asp-for="BlogAuthor" class="form-control" />
+                <input asp-for="BlogAuthor" class="form-control"/>
                 <span asp-validation-for="BlogAuthor" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,10 +33,11 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a asp-action="Index">Back to Blog</a>
+    </div>
+    
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -25,7 +25,6 @@ namespace WarbandOfTheSpiritborn.Controllers
         {
             return View(await _context.Blog.ToListAsync());
         }
-
         // GET: Blogs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -56,7 +55,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BlogName,BlogPost,BlogAuthor, ArticleDate")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,BlogName,BlogPost,BlogAuthor,ArticleDate")] Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +87,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,BlogName,BlogPost,BlogAuthor,ArticleDate")] Blog blog)
         {
             if (id != blog.Id)
             {
