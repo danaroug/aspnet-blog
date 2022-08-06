@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<div class="edit-wrapper bg-light rounded-lg p-2 mt-4">
+<div class="create-conatainer">
     
     <h4>Edit Post</h4>
 
@@ -32,11 +32,6 @@
         </form>
     </div>
 </div>
-
-    <div>
-        <a asp-action="Index">Back to Blog</a>
-    </div>
-    
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
