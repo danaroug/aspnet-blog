@@ -9,10 +9,8 @@
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Gallery</h4>
-    <hr />
-    <dl class="row">
-    </dl>
-    
+    @Html.DisplayNameFor(model => model.Picture)
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

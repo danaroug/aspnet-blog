@@ -25,6 +25,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         {
             return View(await _context.Blog.ToListAsync());
         }
+        
         // GET: Blogs/Details/5
         public async Task<IActionResult> Details(int? id)
         {

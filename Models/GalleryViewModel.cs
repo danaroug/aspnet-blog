@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace WarbandOfTheSpiritborn.Models
-{
-    public class Gallery
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Please choose an image")]
-        public string Picture { get; set; }
-        public Gallery()
-        {
 
-        }
+{
+    public class GalleryViewModel
+    {
+        [Required(ErrorMessage = "Please choose an image")]
+        [Display(Name = "Picture")]
+        public IFormFile Image { get; set; }
     }
 }

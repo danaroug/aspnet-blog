@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<div class="edit-wrapper bg-light rounded-lg p-2 mt-4">
+<div class="create-conatainer">
     <h1>Edit Event</h1>
     <h4>Event</h4>
     <hr />
@@ -34,9 +34,6 @@
         </div>
     </div>
 </div>
-    <div>
-        <a asp-action="Index">Back to Events Page</a>
-    </div>
 
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +16,12 @@ namespace WarbandOfTheSpiritborn.Controllers
     public class GalleriesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public GalleriesController(ApplicationDbContext context)
+        public GalleriesController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            webHostEnvironment = hostEnvironment;
         }
 
         // GET: Galleries
@@ -44,6 +49,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Galleries/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -54,100 +60,41 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Gallery gallery)
+        public async Task<IActionResult> New(GalleryViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string uniqueFileName = UploadedFile(model);
+
+                Gallery gallery = new Gallery
+                {
+                    Picture = uniqueFileName
+                };
                 _context.Add(gallery);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(gallery);
+            return View();
         }
 
-        // GET: Galleries/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        private string UploadedFile(GalleryViewModel model)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            string uniqueFileName = null;
 
-            var gallery = await _context.Gallery.FindAsync(id);
-            if (gallery == null)
+            if (model.Image != null)
             {
-                return NotFound();
-            }
-            return View(gallery);
-        }
-
-        // POST: Galleries/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Gallery gallery)
-        {
-            if (id != gallery.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "photos");
+                uniqueFileName = model.Image.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    _context.Update(gallery);
-                    await _context.SaveChangesAsync();
+                    model.Image.CopyTo(fileStream);
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GalleryExists(gallery.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            return View(gallery);
+            return uniqueFileName;
         }
-
-        // GET: Galleries/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var gallery = await _context.Gallery
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (gallery == null)
-            {
-                return NotFound();
-            }
-
-            return View(gallery);
-        }
-
-        // POST: Galleries/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var gallery = await _context.Gallery.FindAsync(id);
-            _context.Gallery.Remove(gallery);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool GalleryExists(int id)
-        {
-            return _context.Gallery.Any(e => e.Id == id);
-        }
+        
     }
 }
+
+    
