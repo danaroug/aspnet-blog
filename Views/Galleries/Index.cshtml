@@ -4,17 +4,24 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="gallery-container m-5 p-5">
+<div class="container">
     <h1>Gallery</h1>
-
     <p>
         <a asp-action="Create">Upload a picture</a>
     </p>
-    <div class="create-conatainer">
-        @foreach (var gallery in Model)
-        {
-            <img src="~/pictures/@gallery.Picture" class="img-fluid" asp-append-version="true" alt="Image" width="300" height="300" />
-            <a asp-action="Delete" asp-route-id="@gallery.Id">Delete</a>
-        }
-    </div>
+</div>
+<div class="container">
+    
+    @foreach (var gallery in Model)
+    {
+        <div class="gallery-container">
+            
+            <div class="img-fluid p-2 m-2 align-content-center">
+
+                <img src="~/photos/@gallery.Picture" class="img-fluid img-border" asp-append-version="true" alt="Image" width="800" height="500" />
+                <br />
+                <a asp-action="Delete" asp-route-id="@gallery.Id">Delete</a>
+            </div>
+        </div>
+    }
 </div>

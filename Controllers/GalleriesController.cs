@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WarbandOfTheSpiritborn.Data;
 using WarbandOfTheSpiritborn.Models;
+
 
 namespace WarbandOfTheSpiritborn.Controllers
 {
@@ -68,7 +65,7 @@ namespace WarbandOfTheSpiritborn.Controllers
 
                 Gallery gallery = new Gallery
                 {
-                    Picture = uniqueFileName
+                    Picture = uniqueFileName,
                 };
                 _context.Add(gallery);
                 await _context.SaveChangesAsync();
@@ -94,6 +91,51 @@ namespace WarbandOfTheSpiritborn.Controllers
             return uniqueFileName;
         }
         
+        public void DeleteFile(GalleryViewModel model)
+        {
+            string uniqueFileName = null;
+            string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "photos");
+            uniqueFileName = model.Image.FileName;
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            System.IO.File.Delete(filePath);
+        }
+
+        // GET: Galleries/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var gallery = await _context.Gallery
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (gallery == null)
+            {
+                return NotFound();
+            }
+
+            return View(gallery);
+        }
+
+        // POST: Galleries/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var gallery = await _context.Gallery.FindAsync(id);
+            _context.Gallery.Remove(gallery);
+
+            string uniqueFileName = null;
+            string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "photos");
+            uniqueFileName = gallery.Picture;
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            System.IO.File.Delete(filePath);
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
 
