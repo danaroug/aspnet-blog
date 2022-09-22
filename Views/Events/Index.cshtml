@@ -3,12 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="events-container">
-    <h1>Events</h1>
 
+<div class="container-fluid">
+    <h1>Events</h1>
+    <p>Take a look at our guild events! We try to organize guild events regularly, join our discord server for sign ups and much more. </p>
     <p>
         <a asp-action="Create">Create New</a>
     </p>
+
     <table class="table">
         <thead>
             <tr>
@@ -47,4 +49,5 @@
             }
         </tbody>
     </table>
+    <br>
 </div>

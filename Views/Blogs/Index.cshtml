@@ -4,12 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<article class="blog-posts">
-    <h1>Welcome to our Blog</h1>
-    <p>
-        <a asp-action="Create">Create New Post</a>
-    </p>
-    <hr />
+
+    <div class="container">
+        <h1>Welcome to our Blog</h1>
+        <p>
+            <a asp-action="Create">Create New Post</a>
+        </p>
+        <hr />
+    </div>
     <div class="container-fluid">
         @foreach (var item in Model)
         {
@@ -34,4 +36,4 @@
             <hr />
         }
     </div>
-</article>
+

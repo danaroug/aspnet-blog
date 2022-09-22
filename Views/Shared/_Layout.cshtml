@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/pictures/WoTS-logo.jpg" alt="logo" width="48" height="48" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -43,16 +43,17 @@
                 </div>
             </div>
         </nav>
-
     </header>
     <div class="container">
-        <main role="main" class="pt-lg-4 m-lg-5">
-            @RenderBody()
+        <main role="main" class="main-container">
+            <div class="container">
+                @RenderBody()
+            </div>
         </main>
     </div>
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - WarbandOfTheSpiritborn - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - WarbandOfTheSpiritborn - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
