@@ -19,7 +19,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Announcements",
+                name: "Builds",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -75,7 +75,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                 name: "About");
 
             migrationBuilder.DropTable(
-                name: "Announcements");
+                name: "Builds");
 
             migrationBuilder.DropTable(
                 name: "Blog");

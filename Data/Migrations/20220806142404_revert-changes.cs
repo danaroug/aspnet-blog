@@ -2,7 +2,7 @@
 
 namespace WarbandOfTheSpiritborn.Data.Migrations
 {
-    public partial class revertchanges : Migration
+    public partial class Revertchanges : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

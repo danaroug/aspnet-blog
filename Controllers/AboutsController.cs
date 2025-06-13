@@ -21,7 +21,6 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Abouts
-        //[Authorize(Policy = "AdminPolicy")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.About.ToListAsync());
@@ -46,7 +45,12 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Abouts/Create
-        //[Authorize(Policy = "AdminPolicy")]
+        [Authorize(Roles = "Admin")]
+        public class AdministrationController : Controller
+        {
+            public IActionResult Index() =>
+                Content("Admin");
+        }
         public IActionResult Create()
         {
             return View();

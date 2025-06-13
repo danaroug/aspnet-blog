@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WarbandOfTheSpiritborn.Data;
 
 [assembly: HostingStartup(typeof(WarbandOfTheSpiritborn.Areas.Identity.IdentityHostingStartup))]
+
 namespace WarbandOfTheSpiritborn.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup

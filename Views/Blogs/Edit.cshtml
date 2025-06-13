@@ -12,7 +12,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="BlogName" class="control-label">Blog Title</label>
+                <label asp-for="BlogName" class="control-label">Post Title</label>
                 <input asp-for="BlogName" class="form-control" />
                 <span asp-validation-for="BlogName" class="text-danger"></span>
             </div>
@@ -22,12 +22,12 @@
                 <span asp-validation-for="BlogPost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BlogAuthor" class="control-label"></label>
+                <label asp-for="BlogAuthor" class="control-label">Post Author</label>
                 <input asp-for="BlogAuthor" class="form-control"/>
                 <span asp-validation-for="BlogAuthor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary btn-dark mt-1" />
             </div>
         </form>
     </div>

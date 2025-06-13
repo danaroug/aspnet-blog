@@ -9,16 +9,16 @@ namespace WarbandOfTheSpiritborn.Models
     {
         public int Id { get; set; }
 
-        public String BlogName { get; set; }
-        public String BlogPost { get; set; }
-        public String BlogAuthor { get; set; }
+        public string BlogName { get; set; }
+        public string BlogPost { get; set; }
+        public string BlogAuthor { get; set; }
         public DateTime ArticleDate { get; set; }
         public Blog()
         {
             ArticleDate = DateTime.UtcNow;
         }
-        public String Comment { get; set; }
-        public String Reply { get; set; }
+        public string Comment { get; set; }
+        public string Reply { get; set; }
         
     }
 }

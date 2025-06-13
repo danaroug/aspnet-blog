@@ -4,8 +4,11 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="conatainer">
-    <h1>Create a blog post</h1>
+<div class="main-container">
+
+    <div class="container">
+        <h1>Create a blog post</h1>
+    </div>
 
     <div class="container-fluid">
         <form asp-action="Create">
@@ -27,6 +30,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index">Back to About</a>
             </div>
         </form>
     </div>

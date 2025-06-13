@@ -33,7 +33,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // GET: Events/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Events.Where(j=> j.Name.Contains(SearchPhrase)).ToListAsync()); //Using an arrow function to filter results
+            return View("Index", await _context.Events.Where(j=> j.EventName.Contains(SearchPhrase)).ToListAsync()); //Using an arrow function to filter results
         }
         // GET: Events/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -65,7 +65,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Info,Time")] Events events)
+        public async Task<IActionResult> Create([Bind("Id,EventName,EventInfo,Time")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Info,Time")] Events events)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventName,EventInfo,Time")] Events events)
         {
             if (id != events.Id)
             {

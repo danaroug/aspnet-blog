@@ -83,19 +83,16 @@ namespace WarbandOfTheSpiritborn.Controllers
                 string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "photos");
                 uniqueFileName = model.Image.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.Image.CopyTo(fileStream);
-                }
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                model.Image.CopyTo(fileStream);
             }
             return uniqueFileName;
         }
         
         public void DeleteFile(GalleryViewModel model)
         {
-            string uniqueFileName = null;
             string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "photos");
-            uniqueFileName = model.Image.FileName;
+            string uniqueFileName = model.Image.FileName;
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
             System.IO.File.Delete(filePath);
         }

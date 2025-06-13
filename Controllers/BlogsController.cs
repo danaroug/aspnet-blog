@@ -45,7 +45,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Blogs/Create
-        [Authorize]
+        //[Authorize]
         public IActionResult Create()
         {
             return View();

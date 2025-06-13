@@ -2,7 +2,7 @@
 
 namespace WarbandOfTheSpiritborn.Data.Migrations
 {
-    public partial class galleryModel : Migration
+    public partial class GalleryModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

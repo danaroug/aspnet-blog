@@ -17,6 +17,6 @@ namespace WarbandOfTheSpiritborn.Data
         public DbSet<WarbandOfTheSpiritborn.Models.Blog> Blog { get; set; }
         public DbSet<WarbandOfTheSpiritborn.Models.About> About { get; set; }
         public DbSet<WarbandOfTheSpiritborn.Models.Gallery> Gallery { get; set; }
-        public DbSet<WarbandOfTheSpiritborn.Models.Announcements> Announcements { get; set; }
+        public DbSet<WarbandOfTheSpiritborn.Models.Builds> Builds { get; set; }
     }
 }

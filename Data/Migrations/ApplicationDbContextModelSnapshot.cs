@@ -15,7 +15,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.19")
+                .HasAnnotation("ProductVersion", "3.1.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -237,18 +237,6 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                     b.ToTable("About");
                 });
 
-            modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Announcements", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Announcements");
-                });
-
             modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -279,6 +267,54 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                     b.ToTable("Blog");
                 });
 
+            modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Builds", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BuildAuthor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("BuildDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BuildName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Item")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainSkills")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OtherItems")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Profession")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rotation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondarySkills")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Stat")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WeaponSet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Builds");
+                });
+
             modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Events", b =>
                 {
                     b.Property<int>("Id")
@@ -286,10 +322,10 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Info")
+                    b.Property<string>("EventInfo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EventName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Time")
