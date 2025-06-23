@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace WarbandOfTheSpiritborn.Models
     public class Builds
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Profession is required")]
         public string Profession { get; set; }
         public string BuildName { get; set; }
         public string ShortDescription { get; set; }

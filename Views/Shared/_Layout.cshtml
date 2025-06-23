@@ -40,7 +40,9 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" asp-controller="Builds" asp-action="Index">All Builds</a></li>
-                                <li><img class="mb-2" alt="Elementalist" src="~/icons/Profession-Icons/Elementalist_(overhead_icon).png" width="32" height="32" /><a class="dropdown-item d-inline p-0" asp-controller="Builds" asp-action="ElementalistBuilds">Elementalist</a></li>
+                                <li>
+                                    <img class="mb-2" alt="Elementalist" src="~/icons/Profession-Icons/Elementalist_(overhead_icon).png" width="32" height="32" /><a class="dropdown-item d-inline p-0" asp-controller="Builds" asp-action="ByProfession" asp-route-profession="Elementalist">Elementalist</a>
+                                </li>
                                 <li><img class="mb-2" alt="Engineer" src="~/icons/Profession-Icons/Engineer_(overhead_icon).png" width="32" height="32" /><a class="dropdown-item d-inline p-0" href="#">Engineer</a></li>
                                 <li><img class="mb-2" alt="Guardian" src="~/icons/Profession-Icons/Guardian_(overhead_icon).png" width="32" height="32" /><a class="dropdown-item d-inline p-0" href="#">Guardian</a></li>
                                 <li><img class="mb-2" alt="Mesmer" src="~/icons/Profession-Icons/Mesmer_(overhead_icon).png" width="32" height="32" /><a class="dropdown-item d-inline p-0" href="#">Mesmer</a></li>

@@ -34,12 +34,7 @@
                         Elementalist
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @(profession == "Warrior" ? "active" : "")"
-                       asp-controller="Builds" asp-action="ByProfession" asp-route-profession="Warrior">
-                        Warrior
-                    </a>
-                </li>
+               
                 <!-- Add more professions here -->
             </ul>
         </div>
@@ -64,7 +59,8 @@
             <h3>@Html.DisplayFor(modelItem => item.BuildName)</h3>
             <p>@Html.DisplayFor(modelItem => item.ShortDescription)</p>
             <p>Author: @Html.DisplayFor(modelItem => item.BuildAuthor)</p>
-            <p>Posted: @Html.DisplayFor(modelItem => item.BuildDate)</p>
+            <p>Posted: @item.BuildDate.ToString("MMMM dd, yyyy")</p>
+
             <p>
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

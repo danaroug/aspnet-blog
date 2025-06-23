@@ -293,6 +293,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Profession")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rotation")

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WarbandOfTheSpiritborn.Data;
 using WarbandOfTheSpiritborn.Models;
@@ -34,13 +35,12 @@ namespace WarbandOfTheSpiritborn.Controllers
 
             var builds = await _context.Builds
                 .Where(b => b.Profession != null &&
-                b.Profession.Trim().ToLower() == profession.Trim().ToLower())
+                            b.Profession.Trim().ToLower() == profession.Trim().ToLower())
                 .ToListAsync();
 
             ViewData["Title"] = $"{profession} Builds";
             ViewData["Profession"] = profession;
 
-            // Use a generic view "ByProfession" to avoid confusion with profession-specific views
             return View("ByProfession", builds);
         }
 
@@ -60,6 +60,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // GET: Builds/Create
         public IActionResult Create()
         {
+            PopulateProfessions();
             return View();
         }
 
@@ -72,8 +73,10 @@ namespace WarbandOfTheSpiritborn.Controllers
             {
                 _context.Add(build);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ByProfession", new { profession = build.Profession });
             }
+
+            PopulateProfessions();
             return View(build);
         }
 
@@ -87,6 +90,7 @@ namespace WarbandOfTheSpiritborn.Controllers
             if (build == null)
                 return NotFound();
 
+            PopulateProfessions();
             return View(build);
         }
 
@@ -104,6 +108,7 @@ namespace WarbandOfTheSpiritborn.Controllers
                 {
                     _context.Update(build);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction("ByProfession", new { profession = build.Profession });
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -112,8 +117,9 @@ namespace WarbandOfTheSpiritborn.Controllers
                     else
                         throw;
                 }
-                return RedirectToAction(nameof(Index));
             }
+
+            PopulateProfessions();
             return View(build);
         }
 
@@ -144,6 +150,14 @@ namespace WarbandOfTheSpiritborn.Controllers
         private bool BuildExists(int id)
         {
             return _context.Builds.Any(e => e.Id == id);
+        }
+
+        private void PopulateProfessions()
+        {
+            ViewBag.ProfessionList = new SelectList(new[]
+            {
+                "Elementalist", "Warrior", "Ranger", "Mesmer", "Necromancer", "Thief", "Guardian", "Engineer"
+            });
         }
     }
 }

@@ -23,6 +23,14 @@
                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Profession" class="control-label"></label>
+                <select asp-for="Profession" class="form-control" asp-items="ViewBag.ProfessionList">
+                    <option value="">-- Select Profession --</option>
+                </select>
+                <span asp-validation-for="Profession" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <label asp-for="BuildAuthor" class="control-label">Build Author</label>
                 <input asp-for="BuildAuthor" class="form-control" />
                 <span asp-validation-for="BuildAuthor" class="text-danger"></span>
