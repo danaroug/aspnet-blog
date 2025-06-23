@@ -14,7 +14,7 @@
 
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="container text-center">
+            <div class="container">
                 <div class="form-group">
                     <label asp-for="BuildName" class="control-label">Build Name</label>
                     <input asp-for="BuildName" class="form-control" />
@@ -28,21 +28,14 @@
                 <div class="form-group">
                     <label asp-for="ShortDescription" class="control-label">Description</label>
                     <textarea asp-for="ShortDescription" class="form-control" rows="10"></textarea>
-                    <span asp-validation-for="BuildName" class="text-danger"></span>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <table>
-                            <tr>
-                                <th asp-for="Item" class="control-label">Item</th>
-                                <input asp-for="BuildName" class="form-control" />
-                                <span asp-validation-for="Item" class="text-danger"></span>
-                            </tr>
-
-                        </table>
-                        <div class="form-group">
-
-                        </div>
+                        <label asp-for="Item" class="control-label">Items</label>
+                        <input asp-for="Item" class="form-control" />
+                        <span asp-validation-for="Item" class="text-danger"></span>
+                        
                     </div>
                     <div class="col">
                         <div class="form-group">
@@ -66,10 +59,6 @@
 
                 </div>
             </div>
-
-
-
-
 
             <div class="form-group">
                 <label asp-for="Rotation" class="control-label">Rotation</label>
