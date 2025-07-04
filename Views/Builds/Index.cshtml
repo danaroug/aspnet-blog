@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WarbandOfTheSpiritborn.Models.Builds>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+                <li>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" asp-controller="Builds" asp-action="Index">Builds</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>Guild Wars 2 Builds</h1>
+    <p>
+        Here you can find all the gw2 collection of builds created by our guildies. Enjoy!
+    </p>
+    <p>
+        <a asp-action="Create">Create New Build</a>
+    </p>
+    <hr />
+</div>
+<div class="container-fluid">
+    @foreach (var item in Model)
+    {
+        <h3>
+            @Html.DisplayFor(modelItem => item.BuildName)
+        </h3>
+        <p>
+            @Html.DisplayFor(modelItem => item.Profession)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.ShortDescription)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Item)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Stat)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Rotation)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.MainSkills)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.SecondarySkills)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.WeaponSet)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.OtherItems)
+        </p>
+        <p>
+            Author:
+            @Html.DisplayFor(modelItem => item.BuildAuthor)
+        </p>
+        <p>
+            Posted:
+            @Html.DisplayFor(modelItem => item.BuildDate)
+        </p>
+        <p>
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </p>
+        <hr />
+    }
+</div>

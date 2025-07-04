@@ -1,0 +1,47 @@
+﻿@model WarbandOfTheSpiritborn.Models.Builds
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+
+    <h4>Edit Build</h4>
+
+    <div class="container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BuildName" class="control-label">Build Name</label>
+                <input asp-for="BuildName" class="form-control" />
+                <span asp-validation-for="BuildName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label">Description</label>
+                <textarea asp-for="ShortDescription" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profession" class="control-label"></label>
+                <select asp-for="Profession" class="form-control" asp-items="ViewBag.ProfessionList">
+                    <option value="">-- Select Profession --</option>
+                </select>
+                <span asp-validation-for="Profession" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BuildAuthor" class="control-label">Build Author</label>
+                <input asp-for="BuildAuthor" class="form-control" />
+                <span asp-validation-for="BuildAuthor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary btn-dark mt-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

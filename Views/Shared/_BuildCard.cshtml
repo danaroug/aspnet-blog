@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WarbandOfTheSpiritborn.Models.Builds
+
+<div class="build-card mb-4">
+    <h3>@Html.DisplayFor(model => model.BuildName)</h3>
+    <p>@Html.DisplayFor(model => model.ShortDescription)</p>
+    <p><strong>Author:</strong> @Html.DisplayFor(model => model.BuildAuthor)</p>
+    <p><strong>Posted:</strong> @Html.DisplayFor(model => model.BuildDate)</p>
+    <p>
+        <a asp-action="Details" asp-route-id="@Model.Id">Details</a> |
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+    </p>
+    <hr />
+</div>
+<a href="c:\users\danae\desktop\repos\warbandofthespiritborn\views\builds\buildcard.cshtml">c:\users\danae\desktop\repos\warbandofthespiritborn\views\builds\buildcard.cshtml</a>

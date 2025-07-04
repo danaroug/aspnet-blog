@@ -1,0 +1,93 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WarbandOfTheSpiritborn.Models.Builds>
+
+@{
+    ViewData["Title"] = "Elementalist Builds";
+    var profession = (ViewData["Profession"] as string ?? "").ToLower();
+    var professions = new[] { "Elementalist", "Warrior", "Ranger", "Mesmer", "Necromancer", "Thief", "Guardian", "Engineer" };
+    var currentProfession = (ViewData["Profession"] as string ?? "");
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")"
+                       asp-controller="Home" asp-action="Index">Home</a>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link @(currentController == "Builds" && currentAction == "Index" ? "active" : "")"
+                       asp-controller="Builds" asp-action="Index">Builds</a>
+                    <i class="bi bi-chevron-right"></i>
+                </li>
+                
+                @foreach (var prof in professions)
+                {
+                    if (!string.Equals(currentProfession.Trim(), prof, StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue; // Skip other professions
+                    }
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           asp-controller="Builds"
+                           asp-action="ByProfession"
+                           asp-route-profession="@prof">
+                            @prof
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Capitalize only the first letter of the profession string -->
+    <h1>@(char.ToUpper(profession[0]) + profession.Substring(1)) Builds</h1>
+
+
+    <p>Below you can find all the @profession builds.</p>
+    <hr />
+</div>
+
+<div class="container-fluid">
+    @if (!Model.Any())
+    {
+        <p>No Elementalist builds found.</p>
+    }
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <div class="card mb-3 p-3">
+                <h3>@item.BuildName (@item.Profession)</h3>
+                <p><strong>Description:</strong> @item.ShortDescription</p>
+                <p><strong>Author:</strong> @item.BuildAuthor</p>
+                <p><strong>Items:</strong> @item.Item</p>
+                <p><strong>Stat:</strong> @item.Stat</p>
+                <p><strong>Weapon Set:</strong> @item.WeaponSet</p>
+                <p><strong>Other Items:</strong> @item.OtherItems</p>
+                <p><strong>Rotation:</strong> @item.Rotation</p>
+                <p><strong>Main Skills:</strong> @item.MainSkills</p>
+                <p><strong>Secondary Skills:</strong> @item.SecondarySkills</p>
+                <p><strong>Posted:</strong> @item.BuildDate.ToShortDateString()</p>
+                <p>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </p>
+            </div>
+        }
+    }
+</div>

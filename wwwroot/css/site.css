@@ -1,0 +1,149 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #070707;
+}
+    a:hover {
+        
+    }
+.btn-dark {
+    border-radius: 5px;
+}
+.btn-primary
+{
+    
+}
+    .btn-primary:hover {
+        
+    }
+.navbar
+{
+    margin-bottom: 0;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link
+{
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+    font-family: 'Josefin Sans'!important;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html 
+{
+    position: relative;
+    min-height: 100%;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body 
+{
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    margin: 0;
+    /* The image used */
+    background-image: url(/pictures/bg-1.jpg);
+    /* Full height */
+    height: 100%;
+    width: auto;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.glass-nav {
+    background: linear-gradient(274.28deg, rgba(248, 248, 248, 0.7) -1.15%, rgba(240, 240, 240, 0.7) 100%);
+}
+.glass-wrapper {
+    background: linear-gradient(274.28deg, rgba(248, 248, 248, 0.3) -1.15%, rgba(240, 240, 240, 0.5) 100%);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.main-container {
+    background: #fff;
+    border-radius: 5px;
+}
+.home-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 15px;
+    padding: 5px;
+    margin-right: 30px;
+}
+.gallery-container {
+    background: #fff;
+    border-radius: 25px;
+}
+.img-border {
+    width: max-content;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+th {
+    
+}
+td {
+    
+}
+
+tr:hover {
+    
+}
+.footer
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #fff;
+}
+
+/*Style for smaller screens*/
+
+

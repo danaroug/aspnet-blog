@@ -1,0 +1,42 @@
+﻿@model WarbandOfTheSpiritborn.Models.Blog
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-container">
+
+    <div class="container">
+        <h1>Create a blog post</h1>
+    </div>
+
+    <div class="container-fluid">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BlogName" class="control-label">Post Title </label>
+                <input asp-for="BlogName" class="form-control" />
+                <span asp-validation-for="BlogName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogPost" class="control-label">Blog Post</label>
+                <textarea asp-for="BlogPost" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="BlogPost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BlogAuthor" class="control-label">Blog Author</label>
+                <input asp-for="BlogAuthor" class="form-control" />
+                <span asp-validation-for="BlogAuthor" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-dark" />
+                <a asp-action="Index">Back to About</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

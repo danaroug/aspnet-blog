@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WarbandOfTheSpiritborn.Models.Gallery>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="main-container">
+        <div class="container-fluid">
+            <br />
+            <h1>Gallery</h1>
+            <p>
+                <a asp-action="Create">Upload a picture</a>
+            </p>
+        </div>
+
+        @foreach (var gallery in Model)
+        {
+            <div class="gallery-container">
+
+                <div class="img-fluid p-1 m-1 align-content-center">
+
+                    <img src="~/photos/@gallery.Picture" class="img-fluid img-border" asp-append-version="true" alt="Image" width="800" height="500" />
+                    <br />
+                    <a asp-action="Delete" asp-route-id="@gallery.Id">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
