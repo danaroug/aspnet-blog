@@ -18,7 +18,17 @@ namespace WarbandOfTheSpiritborn.Services
         {
             _emailSettings = emailSettings.Value;
             _logger = logger;
+
+            // Override SMTP credentials with environment variables if set
+            var envUser = Environment.GetEnvironmentVariable("SMTP_USER");
+            var envPass = Environment.GetEnvironmentVariable("SMTP_PASS");
+
+            if (!string.IsNullOrEmpty(envUser))
+                _emailSettings.SmtpUser = envUser;
+            if (!string.IsNullOrEmpty(envPass))
+                _emailSettings.SmtpPass = envPass;
         }
+
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
