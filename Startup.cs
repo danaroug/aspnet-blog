@@ -21,7 +21,6 @@ namespace WarbandOfTheSpiritborn
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -29,6 +28,7 @@ namespace WarbandOfTheSpiritborn
 
             services.AddDefaultIdentity<IdentityUser>(options =>
                 options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()  // Add roles support
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
@@ -37,17 +37,13 @@ namespace WarbandOfTheSpiritborn
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminPolicy", policy =>
-                    policy.RequireRole("Administrator"));
+                    policy.RequireRole("Administrator")); // Match role name here
             });
 
-            //services.AddTransient<IEmailSender, EmailSender>();
-
-            //services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("AuthMessageSenderOptions"));
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, MailKitEmailSender>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -58,7 +54,6 @@ namespace WarbandOfTheSpiritborn
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -80,3 +75,4 @@ namespace WarbandOfTheSpiritborn
         }
     }
 }
+
