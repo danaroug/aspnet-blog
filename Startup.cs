@@ -42,7 +42,7 @@ namespace WarbandOfTheSpiritborn
 
             //services.AddTransient<IEmailSender, EmailSender>();
 
-            services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("AuthMessageSenderOptions"));
+            //services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("AuthMessageSenderOptions"));
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, MailKitEmailSender>();
         }
