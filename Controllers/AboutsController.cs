@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WarbandOfTheSpiritborn.Data;
 using WarbandOfTheSpiritborn.Models;
@@ -26,7 +21,14 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(await _context.About.ToListAsync());
         }
 
+        [Authorize(Roles = "Administrator")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         // GET: Abouts/Details/5
+        [Authorize(Roles = "Administrator,Moderator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,23 +46,12 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(about);
         }
 
-        // GET: Abouts/Create
-        [Authorize(Roles = "Admin")]
-        public class AdministrationController : Controller
-        {
-            public IActionResult Index() =>
-                Content("Admin");
-        }
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         // POST: Abouts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Create([Bind("AboutTitle, AboutText")] About about)
         {
             if (ModelState.IsValid)
@@ -73,6 +64,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Abouts/Edit/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -93,6 +85,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,AboutTitle,AboutText")] About about)
         {
             if (id != about.Id)
@@ -124,6 +117,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Abouts/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,6 +138,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // POST: Abouts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var about = await _context.About.FindAsync(id);

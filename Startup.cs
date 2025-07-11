@@ -49,7 +49,7 @@ namespace WarbandOfTheSpiritborn
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();  // Optional: provides detailed EF Core migration errors
             }
             else
             {
