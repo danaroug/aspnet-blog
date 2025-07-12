@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WarbandOfTheSpiritborn.Models;
 
-namespace WarbandOfTheSpiritborn.Controllers
+namespace WarbandOfTheSpiritborn.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
