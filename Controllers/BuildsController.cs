@@ -1,31 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WarbandOfTheSpiritborn.Data;
 using WarbandOfTheSpiritborn.Models;
 
 namespace WarbandOfTheSpiritborn.Controllers
 {
-    public class AnnouncementsController : Controller
+    public class BuildsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AnnouncementsController(ApplicationDbContext context)
+        public BuildsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Announcements
+        // GET: Builds
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Announcements.ToListAsync());
+            return View(await _context.Builds.ToListAsync());
         }
-
-        // GET: Announcements/Details/5
+        // GET: EleBuilds
+        public async Task<IActionResult> ElementalistBuilds()
+        {
+            return View(await _context.Builds.ToListAsync());
+        }
+        // GET: Builds/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,28 +34,28 @@ namespace WarbandOfTheSpiritborn.Controllers
                 return NotFound();
             }
 
-            var announcements = await _context.Announcements
+            var builds = await _context.Builds
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (announcements == null)
+            if (builds == null)
             {
                 return NotFound();
             }
 
-            return View(announcements);
+            return View(builds);
         }
-
-        // GET: Announcements/Create
+        
+        // GET: Builds/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Announcements/Create
+        // POST: Builds/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Announcements announcements)
+        public async Task<IActionResult> Create([Bind("Id, BuildName, ShortDescription, BuildAuthor, Item, Stat, WeaponSet, OtherItems, Rotation, MainSkills, SecondarySkills, BuildDate")] Builds announcements)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +66,7 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(announcements);
         }
 
-        // GET: Announcements/Edit/5
+        // GET: Builds/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,7 +74,7 @@ namespace WarbandOfTheSpiritborn.Controllers
                 return NotFound();
             }
 
-            var announcements = await _context.Announcements.FindAsync(id);
+            var announcements = await _context.Builds.FindAsync(id);
             if (announcements == null)
             {
                 return NotFound();
@@ -81,12 +82,12 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(announcements);
         }
 
-        // POST: Announcements/Edit/5
+        // POST: Builds/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Announcements announcements)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, BuildName, ShortDescription, BuildAuthor, Item, Stat, WeaponSet, OtherItems, Rotation, MainSkills, SecondarySkills, BuildDate")] Builds announcements)
         {
             if (id != announcements.Id)
             {
@@ -116,7 +117,7 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(announcements);
         }
 
-        // GET: Announcements/Delete/5
+        // GET: Builds/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +125,7 @@ namespace WarbandOfTheSpiritborn.Controllers
                 return NotFound();
             }
 
-            var announcements = await _context.Announcements
+            var announcements = await _context.Builds
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (announcements == null)
             {
@@ -134,20 +135,20 @@ namespace WarbandOfTheSpiritborn.Controllers
             return View(announcements);
         }
 
-        // POST: Announcements/Delete/5
+        // POST: Builds/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var announcements = await _context.Announcements.FindAsync(id);
-            _context.Announcements.Remove(announcements);
+            var announcements = await _context.Builds.FindAsync(id);
+            _context.Builds.Remove(announcements);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AnnouncementsExists(int id)
         {
-            return _context.Announcements.Any(e => e.Id == id);
+            return _context.Builds.Any(e => e.Id == id);
         }
     }
 }

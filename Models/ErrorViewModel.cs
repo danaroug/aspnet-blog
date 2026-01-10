@@ -1,5 +1,3 @@
-using System;
-
 namespace WarbandOfTheSpiritborn.Models
 {
     public class ErrorViewModel

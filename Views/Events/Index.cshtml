@@ -4,50 +4,52 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="container-fluid">
-    <h1>Events</h1>
-    <p>Take a look at our guild events! We try to organize guild events regularly, join our discord server for sign ups and much more. </p>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Info)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Time)
-                </th>
-                <th>
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="main-container">
+        <div class="container">
+        <h1>Events</h1>
+        <p>Take a look at our guild events! We try to organize guild events regularly, join our discord server for sign ups and much more. </p>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Info)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Time)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EventName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EventInfo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Time)
+                    </th>
+                    <th>
+                        Action
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <br>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventInfo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

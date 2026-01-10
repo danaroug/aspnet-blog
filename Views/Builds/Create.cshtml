@@ -1,0 +1,104 @@
+﻿@model WarbandOfTheSpiritborn.Models.Builds
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-container">
+
+    <div class="container">
+        <h1>Create a new build</h1>
+    </div>
+
+    <div class="container-fluid">
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container text-center">
+                <div class="form-group">
+                    <label asp-for="BuildName" class="control-label">Build Name</label>
+                    <input asp-for="BuildName" class="form-control" />
+                    <span asp-validation-for="BuildName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Profession" class="control-label">Profession</label>
+                    <input asp-for="Profession" class="form-control" />
+                    <span asp-validation-for="Profession" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShortDescription" class="control-label">Description</label>
+                    <textarea asp-for="ShortDescription" class="form-control" rows="10"></textarea>
+                    <span asp-validation-for="BuildName" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table>
+                            <tr>
+                                <th asp-for="Item" class="control-label">Item</th>
+                                <input asp-for="BuildName" class="form-control" />
+                                <span asp-validation-for="Item" class="text-danger"></span>
+                            </tr>
+
+                        </table>
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Stat" class="control-label">Stat</label>
+                            <input asp-for="Stat" class="form-control" />
+                            <span asp-validation-for="Stat" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="WeaponSet" class="control-label">Weapon Set</label>
+                            <input asp-for="WeaponSet" class="form-control" />
+                            <span asp-validation-for="WeaponSet" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OtherItems" class="control-label">Other Items</label>
+                            <input asp-for="OtherItems" class="form-control" />
+                            <span asp-validation-for="OtherItems" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="Rotation" class="control-label">Rotation</label>
+                <input asp-for="Rotation" class="form-control" />
+                <span asp-validation-for="Rotation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainSkills" class="control-label">Main Skills</label>
+                <input asp-for="MainSkills" class="form-control" />
+                <span asp-validation-for="MainSkills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondarySkills" class="control-label">Secondary Skills</label>
+                <input asp-for="SecondarySkills" class="form-control" />
+                <span asp-validation-for="SecondarySkills" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BuildAuthor" class="control-label">Build Author</label>
+                <input asp-for="BuildAuthor" class="form-control" />
+                <span asp-validation-for="BuildAuthor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-dark" />
+                <a asp-action="Index">Back to Builds</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

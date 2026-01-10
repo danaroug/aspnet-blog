@@ -6,28 +6,30 @@
     ViewData["Title"] = "Index";
 }
 
-
-<div class="container-fluid">
-    <h1>Discover our story</h1>
-    <p>
-        <a asp-action="Create">Add Content</a>
-    </p>
-</div>
-<hr />
-<div class="container-fluid">
-    @foreach (var item in Model)
-    {
-        <h2>
-            @Html.DisplayFor(modelItem => item.AboutTitle)
-        </h2>
+<div class="main-container">
+    <div class="container-fluid">
+        <br />
+        <h1>Discover our story</h1>
         <p>
-            @Html.DisplayFor(modelItem => item.AboutText)
+            <a asp-action="Create">Add Content</a>
         </p>
+    </div>
+    <hr />
+    <div class="container-fluid">
+        @foreach (var item in Model)
+        {
+            <h2>
+                @Html.DisplayFor(modelItem => item.AboutTitle)
+            </h2>
+            <p>
+                @Html.Raw(item.AboutText.Replace(Environment.NewLine, "<br/>"))
+            </p>
 
-        <p>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </p>
-        <hr />
-    }
+            <p>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </p>
+            <hr />
+        }
+    </div>
 </div>

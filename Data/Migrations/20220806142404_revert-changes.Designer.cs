@@ -11,7 +11,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220806142404_revert-changes")]
-    partial class revertchanges
+    partial class Revertchanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -239,7 +239,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
                     b.ToTable("About");
                 });
 
-            modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Announcements", b =>
+            modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Builds", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -248,7 +248,7 @@ namespace WarbandOfTheSpiritborn.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Announcements");
+                    b.ToTable("Builds");
                 });
 
             modelBuilder.Entity("WarbandOfTheSpiritborn.Models.Blog", b =>
