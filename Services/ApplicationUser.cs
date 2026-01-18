@@ -2,14 +2,21 @@
 
 namespace WarbandOfTheSpiritborn.Services
 {
+    /// <summary>
+    /// Represents an application user in the system.
+    /// Inherits from IdentityUser, so it already includes properties like Id, UserName, Email, etc.
+    /// Add any custom fields here if needed.
+    /// </summary>
     public class ApplicationUser : IdentityUser
     {
-        // Add ONLY custom fields here if needed
-        // Example:
+        // Example of a custom field:
         // public string? DisplayName { get; set; }
     }
 
-    // Optional: role name constants (NOT an entity)
+    /// <summary>
+    /// Holds constants for role names used in the application.
+    /// Helps avoid hardcoding role strings across the codebase.
+    /// </summary>
     public static class AppRoles
     {
         public const string Admin = "admin";
@@ -17,5 +24,6 @@ namespace WarbandOfTheSpiritborn.Services
         public const string Guest = "guest";
     }
 }
+
 
 
