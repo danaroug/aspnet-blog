@@ -87,6 +87,20 @@
     --bs-btn-disabled-bg: var(--app-accent);
     --bs-btn-disabled-border-color: var(--app-accent);
 }
+/* Theme Bootstrap link-buttons */
+.btn-link {
+    --bs-btn-color: var(--brand-ember);
+    --bs-btn-hover-color: var(--brand-ember);
+    --bs-btn-active-color: var(--brand-ember);
+    color: var(--bs-btn-color);
+    text-decoration: none;
+}
+
+    .btn-link:hover,
+    .btn-link:focus {
+        color: var(--bs-btn-hover-color);
+        text-decoration: underline;
+    }
 /* Base document */
 
 html {
