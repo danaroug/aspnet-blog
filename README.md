@@ -5,7 +5,18 @@ ASP.NET Core MVC community platform for guild events, builds, blog content, gall
 This repository is also a personal full-stack learning project focused on building a structured, maintainable ASP.NET Core application with Entity Framework Core and ASP.NET Identity.
 
 ---
+## Screenshots
 
+### Home / Landing Page
+<img width="900" alt="Warband of the Spiritborn home landing page" src="https://github.com/user-attachments/assets/36349b9c-0177-4ec0-b057-fc17e5bcef80" />
+
+### User Management
+<img width="900" alt="User management page with role-based administration" src="https://github.com/user-attachments/assets/8f30a287-ed5a-4e3a-ad32-6a2d40658600" />
+
+### Event Page
+<img width="900" alt="Event page showing community event details" src="https://github.com/user-attachments/assets/74202353-598f-4e4e-8f0b-8182ba220b55" />
+
+---
 ## Features
 
 - Blog post management
