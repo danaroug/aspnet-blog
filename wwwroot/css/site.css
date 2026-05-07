@@ -1018,7 +1018,6 @@ button.accept-policy {
     line-height: 1.35;
 }
 /* User identity text */
-
 .admin-users-page .admin-user-identity {
     min-width: 0;
     max-width: 100%;
@@ -1032,26 +1031,34 @@ button.accept-policy {
     line-height: 1.35;
 }
 /* Identity account/manage navigation */
-.account-manage-nav .nav-link {
+.account-manage-page {
     color: var(--app-text);
-    border: 1px solid transparent;
-    border-radius: 0.6rem;
-    margin-bottom: 0.25rem;
 }
 
-    .account-manage-nav .nav-link:hover,
-    .account-manage-nav .nav-link:focus {
-        color: var(--wots-copper, #c88a4a);
-        background-color: rgba(255, 255, 255, 0.06);
-        border-color: rgba(255, 255, 255, 0.12);
-        text-decoration: none;
-    }
+.account-manage-nav {
+    gap: 0.35rem;
+}
 
-    .account-manage-nav .nav-link.active,
-    .account-manage-nav .nav-pills .nav-link.active,
-    .account-manage-nav .nav-link[aria-current="page"] {
-        color: var(--wots-dark, #1b1410);
-        background-color: var(--wots-copper, #c88a4a);
-        border-color: var(--wots-copper, #c88a4a);
+    .account-manage-nav .nav-link {
+        color: var(--app-text);
+        border: 1px solid rgba(138, 58, 24, 0.12);
+        border-radius: 0.6rem;
+        background: rgba(255, 251, 248, 0.72);
         font-weight: 600;
     }
+
+        .account-manage-nav .nav-link:hover,
+        .account-manage-nav .nav-link:focus {
+            color: var(--app-accent-strong);
+            background: var(--app-accent-soft);
+            border-color: rgba(138, 58, 24, 0.24);
+            text-decoration: none;
+        }
+
+        .account-manage-nav .nav-link.active,
+        .account-manage-nav .nav-link[aria-current="page"] {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand-ember), var(--brand-ember-deep));
+            border-color: var(--brand-ember-deep);
+            box-shadow: 0 10px 20px rgba(59, 11, 3, 0.16);
+        }

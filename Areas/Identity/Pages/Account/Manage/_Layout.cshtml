@@ -1,0 +1,24 @@
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<section class="account-manage-page">
+    <header class="mb-4">
+        <h1 class="section-title mb-2">Manage your account</h1>
+        <p class="section-subtitle mb-0">Update your profile and account settings.</p>
+    </header>
+
+    <div class="row g-4">
+        <aside class="col-md-4 col-lg-3">
+            <partial name="_ManageNav" />
+        </aside>
+
+        <section class="col-md-8 col-lg-9">
+            @RenderBody()
+        </section>
+    </div>
+</section>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}
