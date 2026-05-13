@@ -33,6 +33,74 @@
     --app-success: #3c6b4f;
 }
 
+.brand-text {
+    font-size: 0.98rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: inherit;
+    line-height: 1.2;
+}
+/* Button theme overrides */
+.btn-danger {
+    background: var(--brand-copper);
+    border: var(--brand-copper);
+}
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--brand-copper);
+    --bs-btn-border-color: var(--brand-copper);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--brand-copper);
+    --bs-btn-hover-border-color: var(--brand-copper);
+    --bs-btn-focus-shadow-rgb: 225, 83, 97;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--brand-copper);
+    --bs-btn-active-border-color: var(--brand-copper);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff : #fff;
+    --bs-btn-disabled-bg: var(--brand-copper);
+    --bs-btn-disabled-border-color: var(--brand-copper);
+}
+    .btn-outline-primary {
+    --bs-btn-color: var(--app-accent);
+    --bs-btn-border-color: var(--app-accent);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--app-accent);
+    --bs-btn-hover-border-color: var(--app-accent);
+    --bs-btn-focus-shadow-rgb: 138, 58, 24;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--app-accent-strong);
+    --bs-btn-active-border-color: var(--app-accent-strong);
+    --bs-btn-disabled-color: var(--app-accent);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--app-accent);
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--app-accent);
+    --bs-btn-border-color: var(--app-accent);
+    --bs-btn-hover-bg: var(--app-accent-strong);
+    --bs-btn-hover-border-color: var(--app-accent-strong);
+    --bs-btn-focus-shadow-rgb: 138, 58, 24;
+    --bs-btn-active-bg: var(--app-accent-strong);
+    --bs-btn-active-border-color: var(--app-accent-strong);
+    --bs-btn-disabled-bg: var(--app-accent);
+    --bs-btn-disabled-border-color: var(--app-accent);
+}
+/* Theme Bootstrap link-buttons */
+.btn-link {
+    --bs-btn-color: var(--brand-ember);
+    --bs-btn-hover-color: var(--brand-ember);
+    --bs-btn-active-color: var(--brand-ember);
+    color: var(--bs-btn-color);
+    text-decoration: none;
+}
+
+    .btn-link:hover,
+    .btn-link:focus {
+        color: var(--bs-btn-hover-color);
+        text-decoration: underline;
+    }
 /* Base document */
 
 html {
@@ -55,7 +123,7 @@ body {
     padding-top: 92px;
     padding-bottom: 72px;
     color: var(--app-text);
-    font-family: "Josefin Sans", sans-serif !important;
+    font-family: "Inter", sans-serif;
     background-image: url("/pictures/bg-1.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -146,7 +214,6 @@ a {
     margin-bottom: 0;
     padding-top: 0.45rem;
     padding-bottom: 0.45rem;
-    border-radius: 18px;
 }
 
 .navbar-brand img {
@@ -334,8 +401,6 @@ input[type="file"] {
 }
 
 /* Footer */
-
-/* Fixed simple footer */
 
 .site-footer {
     position: fixed;
@@ -698,3 +763,302 @@ button.accept-policy {
     color: var(--app-accent-strong);
     text-decoration: underline;
 }
+.auth-nav-form {
+    margin: 0;
+}
+
+.auth-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.auth-nav-button {
+    padding: 0.5rem 1rem;
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+}
+
+    .auth-nav-button:focus,
+    .auth-nav-button:active {
+        box-shadow: none;
+    }
+/* Admin User Management page */
+
+.admin-users-page {
+    color: var(--app-text);
+}
+
+    /* Page hero */
+
+    .admin-users-page > section:first-child {
+        padding: 1.5rem;
+        border: 1px solid rgba(138, 58, 24, 0.14);
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(244, 239, 235, 0.88), rgba(204, 178, 164, 0.34)), rgba(255, 252, 250, 0.94);
+        box-shadow: var(--app-shadow-soft);
+    }
+
+        .admin-users-page > section:first-child h1 {
+            color: var(--app-text);
+        }
+
+        .admin-users-page > section:first-child .text-muted {
+            color: var(--app-text-soft) !important;
+        }
+
+        /* Admin header badges */
+
+        .admin-users-page > section:first-child .badge {
+            border: 1px solid rgba(138, 58, 24, 0.18);
+            color: var(--app-accent-strong);
+            background: var(--app-accent-soft) !important;
+        }
+
+    /* Cards */
+
+    .admin-users-page .card {
+        border: 1px solid rgba(138, 58, 24, 0.1) !important;
+        border-radius: 18px;
+        background: rgba(255, 252, 250, 0.94);
+        box-shadow: var(--app-shadow-soft) !important;
+    }
+
+    .admin-users-page .card-body {
+        padding: 1.25rem;
+    }
+
+    /* Stat cards */
+
+    .admin-users-page .row.g-3 .card {
+        position: relative;
+        overflow: hidden;
+    }
+
+        .admin-users-page .row.g-3 .card::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--brand-ember), var(--brand-ember-deep));
+        }
+
+        .admin-users-page .row.g-3 .card .fs-3 {
+            color: var(--app-accent-strong);
+        }
+
+    /* Bootstrap 5.3 subtle utility replacements for current Bootstrap version */
+
+    .admin-users-page .bg-primary-subtle,
+    .admin-users-page .bg-info-subtle,
+    .admin-users-page .bg-success-subtle,
+    .admin-users-page .bg-warning-subtle {
+        background: var(--app-accent-soft) !important;
+    }
+
+    .admin-users-page .text-primary,
+    .admin-users-page .text-info,
+    .admin-users-page .text-success,
+    .admin-users-page .text-warning {
+        color: var(--app-accent-strong) !important;
+    }
+
+    /* User cards */
+
+    .admin-users-page article.card {
+        background: linear-gradient(145deg, rgba(255, 252, 250, 0.98), rgba(244, 239, 235, 0.72));
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+        .admin-users-page article.card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(138, 58, 24, 0.22) !important;
+            box-shadow: var(--app-shadow) !important;
+        }
+
+    /* User avatar */
+
+    .admin-users-page .rounded-circle.bg-dark {
+        background: linear-gradient(135deg, var(--brand-ember), var(--brand-ember-deep)) !important;
+        box-shadow: 0 10px 20px rgba(59, 11, 3, 0.18);
+    }
+
+    /* Badges */
+
+    .admin-users-page .badge {
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+
+        .admin-users-page .badge.bg-primary,
+        .admin-users-page .badge.bg-secondary {
+            background: var(--app-accent-soft) !important;
+            color: var(--app-accent-strong) !important;
+            border: 1px solid rgba(138, 58, 24, 0.16);
+        }
+
+        .admin-users-page .badge.bg-success {
+            background: rgba(60, 107, 79, 0.14) !important;
+            color: var(--app-success) !important;
+            border: 1px solid rgba(60, 107, 79, 0.2);
+        }
+
+        .admin-users-page .badge.bg-warning {
+            background: rgba(163, 95, 59, 0.16) !important;
+            color: var(--brand-ember-deep) !important;
+            border: 1px solid rgba(163, 95, 59, 0.24);
+        }
+
+    /* Forms */
+
+    .admin-users-page .form-control,
+    .admin-users-page .form-select {
+        min-height: 42px;
+        border-radius: 12px;
+        border-color: rgba(138, 58, 24, 0.16);
+        background: rgba(255, 251, 248, 0.92);
+    }
+
+        .admin-users-page .form-control:focus,
+        .admin-users-page .form-select:focus {
+            border-color: rgba(138, 58, 24, 0.42);
+            box-shadow: 0 0 0 0.2rem rgba(138, 58, 24, 0.12);
+        }
+
+    /* Buttons */
+
+    .admin-users-page .btn {
+        min-height: 38px;
+    }
+
+    /* Keep Add role aligned with the global primary button theme */
+    .admin-users-page .btn-primary {
+        color: #fff;
+        background: linear-gradient(135deg, var(--brand-ember), var(--brand-ember-deep));
+        border: none;
+        box-shadow: 0 10px 20px rgba(59, 11, 3, 0.16);
+    }
+
+        .admin-users-page .btn-primary:hover {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand-copper), var(--brand-ember-deep));
+        }
+
+    /* Make Create role use the same WOTS styling instead of Bootstrap green */
+    .admin-users-page .btn-success {
+        color: #fff;
+        background: linear-gradient(135deg, var(--brand-ember), var(--brand-ember-deep));
+        border: none;
+        box-shadow: 0 10px 20px rgba(59, 11, 3, 0.16);
+    }
+
+        .admin-users-page .btn-success:hover {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand-copper), var(--brand-ember-deep));
+        }
+
+/* Keep destructive actions distinct but theme-aligned */
+.btn-outline-danger {
+    color: var(--brand-ember);
+    border-color: var(--brand-ember);
+    background: rgba(255, 251, 248, 0.75);
+}
+
+    .btn-outline-danger:hover,
+    .btn-outline-danger:focus {
+        color: #fff;
+        border-color: var(--brand-ember);
+        background: var(--brand-ember);
+    }
+
+    .btn-outline-danger:active {
+        color: #fff !important;
+        border-color: var(--brand-ember) !important;
+        background: var(--brand-ember) !important;
+    }
+
+    /* Helper text */
+
+    .admin-users-page .text-muted {
+        color: var(--app-text-soft) !important;
+    }
+
+    /* Safety rules list */
+
+    .admin-users-page aside ul li {
+        margin-bottom: 0.45rem;
+    }
+
+        .admin-users-page aside ul li:last-child {
+            margin-bottom: 0;
+        }
+
+/* Responsive polish */
+
+@media (max-width: 767.98px) {
+    .admin-users-page > section:first-child {
+        padding: 1.15rem;
+    }
+
+    .admin-users-page .card-body {
+        padding: 1rem;
+    }
+
+    .admin-users-page article.card:hover {
+        transform: none;
+    }
+}
+/* Keep long emails/usernames from overflowing inside admin user cards */
+.admin-users-page .admin-user-email,
+.admin-users-page .admin-user-name {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.35;
+}
+/* User identity text */
+.admin-users-page .admin-user-identity {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.admin-users-page .admin-user-email,
+.admin-users-page .admin-user-name {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.35;
+}
+/* Identity account/manage navigation */
+.account-manage-page {
+    color: var(--app-text);
+}
+
+.account-manage-nav {
+    gap: 0.35rem;
+}
+
+    .account-manage-nav .nav-link {
+        color: var(--app-text);
+        border: 1px solid rgba(138, 58, 24, 0.12);
+        border-radius: 0.6rem;
+        background: rgba(255, 251, 248, 0.72);
+        font-weight: 600;
+    }
+
+        .account-manage-nav .nav-link:hover,
+        .account-manage-nav .nav-link:focus {
+            color: var(--app-accent-strong);
+            background: var(--app-accent-soft);
+            border-color: rgba(138, 58, 24, 0.24);
+            text-decoration: none;
+        }
+
+        .account-manage-nav .nav-link.active,
+        .account-manage-nav .nav-link[aria-current="page"] {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand-ember), var(--brand-ember-deep));
+            border-color: var(--brand-ember-deep);
+            box-shadow: 0 10px 20px rgba(59, 11, 3, 0.16);
+        }

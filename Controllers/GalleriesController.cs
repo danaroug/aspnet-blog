@@ -58,7 +58,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // POST: Galleries/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Moderator,Administrator")]
         public async Task<IActionResult> Create(GalleryViewModel model)
         {
             if (!ModelState.IsValid)
@@ -86,7 +86,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         }
 
         // GET: Galleries/Delete/5
-        [Authorize]
+        [Authorize(Roles = "Moderator,Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,7 @@ namespace WarbandOfTheSpiritborn.Controllers
         // POST: Galleries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Moderator,Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var galleryItem = await _context.Gallery.FindAsync(id);
@@ -134,7 +134,7 @@ namespace WarbandOfTheSpiritborn.Controllers
                 return null;
             }
 
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "photos");
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
             Directory.CreateDirectory(uploadsFolder);
 
             var extension = Path.GetExtension(model.Image.FileName);
@@ -154,7 +154,7 @@ namespace WarbandOfTheSpiritborn.Controllers
                 return;
             }
 
-            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "photos");
+            var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
             var filePath = Path.Combine(uploadsFolder, fileName);
 
             if (System.IO.File.Exists(filePath))

@@ -362,5 +362,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-# Ignore your data folder (where our DB or sensitive info is)
-data/
+# Photos folder for uploads
+wwwroot/photos/*
+!wwwroot/photos/.gitkeep
+# Local SQL helper scripts
+SQL/
